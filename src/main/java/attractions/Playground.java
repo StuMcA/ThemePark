@@ -1,0 +1,21 @@
+package attractions;
+
+import behaviours.ISecurity;
+import people.Visitor;
+
+public class Playground extends Attraction implements ISecurity {
+
+    public Playground(String name, int rating) {
+        super(name, rating);
+    }
+
+    public boolean isAllowedTo(Visitor visitor) {
+        return visitor.getAge() <= 15;
+    }
+
+    public void addVisitor(Visitor visitor) {
+        if (isAllowedTo(visitor)) {
+            super.addVisitor(visitor);
+        }
+    }
+}
